@@ -78,7 +78,8 @@ def decode_labels(mask, num_images=1, num_classes=20):
     return outputs
 
 def read_img(img_path):
-    _img = Image.open(img_path).convert('RGB')  # return is RGB pic
+    _img = Image.open(img_path).convert('RGB') # return is RGB pic
+    _img.resize((int(_img.size[0] / 4), int(_img.size[1] / 4)))
     return _img
 
 def img_transform(img, transform=None):
